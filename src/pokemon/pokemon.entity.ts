@@ -22,6 +22,24 @@ export class Pokemon {
     @Column()
     image: string;
 
+    @Column()
+    hp: number;
+
+    @Column()
+    attack: number;
+
+    @Column()
+    defense: number;
+
+    @Column()
+    sp_attack: number;
+
+    @Column()
+    sp_defense: number;
+
+    @Column()
+    speed: number;
+
     @ManyToMany(() => Type, type => type.pokemons)
     @JoinTable({
         name: 'pokemon_type',
