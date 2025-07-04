@@ -1,17 +1,18 @@
+// favorites/favorite.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Favorite } from './favorite.entity';
+import { Favoris } from './favorite.entity';
 
 @Injectable()
 export class FavoriteService {
     constructor(
-        @InjectRepository(Favorite)
-        private repo: Repository<Favorite>,
+        @InjectRepository(Favoris)
+        private repo: Repository<Favoris>,
     ) { }
 
-    create(fav: Partial<Favorite>) {
-        return this.repo.save(fav);
+    create(data: any) {
+        return this.repo.save(data);
     }
 
     findByUser(userId: number) {

@@ -14,7 +14,12 @@ export class UserService {
         return this.repo.findOneBy({ email });
     }
 
-    create(data: Partial<User>) {
-        return this.repo.save(data);
+    findById(id: number) {
+        return this.repo.findOneBy({ id });
+    }
+
+    create(data: any) {
+        const user = this.repo.create(data);
+        return this.repo.save(user);
     }
 }
